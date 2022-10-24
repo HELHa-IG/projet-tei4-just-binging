@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Just_Binging.Data;
 using Just_Binging.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Just_Binging.Controllers
 {
@@ -33,35 +34,6 @@ namespace Just_Binging.Controllers
         public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _context.User.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
-        }
-
-        // POST: api/Users/
-        [HttpPost]
-        public async Task<ActionResult<User>> CheckUserLogIn(String name, String password)
-        {
-            
-            if(name == null || password == null)
-            {
-                return NoContent();
-            }
-
-            // Hash password
-            string salt = BCrypt.GenerateSalt();
-            string hash = BCrypt.HashPassword(passsword, salt);
-
-            // Regarder comment trouver user à partir d'autre chose que primary key
-            // Check password
-            bool doesPasswordMatch = Bcrypt.CheckPassword(passwordRecu, hash);
-            // regarder pour hash et dehash du password
-            // var select = select id from dbo.user where name='name' and password='password' 
-            var user = await _context.User.FindAsync();
 
             if (user == null)
             {
@@ -107,6 +79,13 @@ namespace Just_Binging.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            string Salt = BCrypt.GenerateSalt();
+            string HashedPassword = BCrypt.HashPassword(user.Password, Salt);
+            user.Password = HashedPassword;
             _context.User.Add(user);
             await _context.SaveChangesAsync();
 
