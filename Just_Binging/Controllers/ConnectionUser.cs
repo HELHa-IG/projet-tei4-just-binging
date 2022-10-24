@@ -28,7 +28,7 @@ namespace Just_Binging.Controllers
                 throw new Exception("data not correct");
             }
 
-            // Récupération des mots de passe en fonction du nom.
+            // Find User in Database
             var query = from getConnectionUser in _context.User
                         where getConnectionUser.Name == name
                         select new
@@ -40,8 +40,8 @@ namespace Just_Binging.Controllers
             int getUserId = 0;
             foreach (var getConnectionUser in query)
             {
-                // Check password
-                if(BCrypt.CheckPassword(password, getConnectionUser.getPassword))
+                // Check password Hash
+                if (BCrypt.CheckPassword(password, getConnectionUser.getPassword))
                 {
                     getUserId = getConnectionUser.getId;
                 }
