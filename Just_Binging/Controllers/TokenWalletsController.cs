@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Just_Binging.Data;
-using Just_Binging.Models;
 
-namespace SecureAPIExamplev2.Controllers
+namespace Just_Binging.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,16 +21,11 @@ namespace SecureAPIExamplev2.Controllers
             _context = context;
         }
 
-        public Just_BingingContext Get_context()
-        {
-            return _context;
-        }
-
         // GET: api/TokenWallets
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TokenWallet>>> GetTokenWallet(string name, string password, Just_BingingContext _context)
         {
-            // Find User in Database + Check password Hash
+            // Find User in Database
             var query = from getConnectionUser in _context.User
                         where getConnectionUser.Name == name
                         select new
@@ -39,29 +33,26 @@ namespace SecureAPIExamplev2.Controllers
                             getPassword = getConnectionUser.Password,
                             getId = getConnectionUser.Id
                         };
-            User user;
             foreach (var getConnectionUser in query)
             {
-                // Check password
+                // Check password Hash
                 if (BCrypt.CheckPassword(password, getConnectionUser.getPassword))
                 {
-                    user = _context.FindAsync(getConnectionUser.getId);
-                }
-            }
-       
-            if (user != null && BCrypt.CheckPassword(password, user.Password))
-            {
-                string Token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
-                TokenWallet tw = new TokenWallet();
-                tw.Token = Token;
-                tw.User = user;
-                _context.TokenWallet.Add(tw);
-                _context.SaveChanges();
-                return Ok(_context.TokenWallet.FirstOrDefault(T => T.TokenWalletId == tw.TokenWalletId));
-            }
-            // END Find User in Database + Check password Hash
-            return Unauthorized();
+                    User? user = await _context.User.FindAsync(getConnectionUser.getId);
+                    if(user != null)
+                    {
+                        string Token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+                        TokenWallet tw = new TokenWallet();
+                        tw.Token = Token;
+                        tw.User = user;
+                        _context.TokenWallet.Add(tw);
+                        _context.SaveChanges();
+                        return await Task.FromResult(Ok(_context.TokenWallet.FirstOrDefault(T => T.TokenWalletId == tw.TokenWalletId)));
 
+                    }
+                }   
+            }
+            return await Task.FromResult(Unauthorized());
         }
 
         // GET: api/TokenWallets/5

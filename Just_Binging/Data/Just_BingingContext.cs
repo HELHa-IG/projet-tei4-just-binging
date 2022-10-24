@@ -9,7 +9,7 @@ namespace Just_Binging.Data
 {
     public class Just_BingingContext : DbContext
     {
-        public Just_BingingContext (DbContextOptions<Just_BingingContext> options)
+        public Just_BingingContext(DbContextOptions<Just_BingingContext> options)
             : base(options)
         {
         }
