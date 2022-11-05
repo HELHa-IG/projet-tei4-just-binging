@@ -1,16 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Just_Binging.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Just_Binging.Services
+namespace SecureAPIExemple.Services
 {
     public class TokenService
     {
-        //public static bool isTokenValid(DbSet<Models.TokenWallet> TokenWallets)
-        //{
-            //string token = HttpContext.Current.Request.Headers.Get("x-auth-token");
-            //if (token.IsEmpty())
-            //{
-            //    return false,
-            //}
-        //}
+        public static bool IsTokenValid(string Token, DbSet<TokenWallet> TokenWallets)
+        {
+            if (Token == null)
+            {
+                return false;
+            }
+            TokenWallet tw = TokenWallets.FirstOrDefault(T => T.Token == Token);
+            if (tw == null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
