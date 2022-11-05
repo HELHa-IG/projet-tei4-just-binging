@@ -19,5 +19,7 @@ namespace Just_Binging.Data
         public DbSet<Just_Binging.Models.User> User { get; set; }
 
         public DbSet<Just_Binging.Models.TokenWallet> TokenWallet { get; set; }
+
+        public DbSet<Just_Binging.Models.Show> Show { get; set; }
     }
 }
