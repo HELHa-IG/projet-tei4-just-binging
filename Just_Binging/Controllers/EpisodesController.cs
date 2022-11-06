@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Just_Binging.Data;
 using Just_Binging.Models;
-using Just_Binging.Services;
 using SecureAPIExemple.Services;
 using NuGet.Common;
 
@@ -79,7 +78,7 @@ namespace Just_Binging.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EpisodeExists(id, token))
+                    if (!EpisodeExists(id))
                     {
                         return NotFound();
                     }
