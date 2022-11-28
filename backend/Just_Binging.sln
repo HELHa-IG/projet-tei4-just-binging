@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Just_Binging", "Just_Binging\Just_Binging.csproj", "{D47DB715-45F3-47DD-85E5-66CE224F4E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Just_Binging", "Just_Binging\Just_Binging.csproj", "{D47DB715-45F3-47DD-85E5-66CE224F4E95}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "just-binging", "..\frontend\just-binging\just-binging.esproj", "{0F129336-C721-42F9-9A80-4B0EFFE1F063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{D47DB715-45F3-47DD-85E5-66CE224F4E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47DB715-45F3-47DD-85E5-66CE224F4E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47DB715-45F3-47DD-85E5-66CE224F4E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F129336-C721-42F9-9A80-4B0EFFE1F063}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
