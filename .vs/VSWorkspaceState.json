@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\Just_Binging",
-    "\\backend\\Just_Binging\\Models",
-    "\\frontend"
+    "\\frontend",
+    "\\frontend\\just-binging",
+    "\\frontend\\just-binging\\.angular",
+    "\\frontend\\just-binging\\obj",
+    "\\frontend\\just-binging\\src"
   ],
-  "SelectedNode": "\\backend\\Just_Binging\\Models\\User.cs",
+  "SelectedNode": "\\backend\\Just_Binging.sln",
   "PreviewInSolutionExplorer": false
 }
