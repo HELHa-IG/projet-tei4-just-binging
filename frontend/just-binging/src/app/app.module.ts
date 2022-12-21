@@ -6,7 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
-const appRoutes: Routes = []
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent }
+]
 
 @NgModule({
   declarations: [
