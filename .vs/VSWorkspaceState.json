@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\backend",
-    "\\frontend",
-    "\\frontend\\just-binging",
-    "\\frontend\\just-binging\\.angular",
-    "\\frontend\\just-binging\\obj",
-    "\\frontend\\just-binging\\src"
+    ""
   ],
-  "SelectedNode": "\\backend\\Just_Binging.sln",
+  "SelectedNode": "\\Just_Binging.sln",
   "PreviewInSolutionExplorer": false
 }
