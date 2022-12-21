@@ -173,3 +173,7 @@ _[Ss]cripts
 Just_Binging/.vs/*
 
 .vs/*
+
+# Ajout du groupe
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
