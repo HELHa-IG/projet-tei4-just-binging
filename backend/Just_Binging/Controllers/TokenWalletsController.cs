@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Just_Binging.Data;
+using NuGet.Protocol.Plugins;
 
 namespace Just_Binging.Controllers
 {
@@ -23,24 +24,15 @@ namespace Just_Binging.Controllers
 
         // GET: api/TokenWallets
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TokenWallet>>> GetTokenWallet(string name, string password, Just_BingingContext _context)
+        public async Task<ActionResult<IEnumerable<TokenWallet>>> GetTokenWallet(string name, string password)
         {
             // Find User in Database
-            var query = from getConnectionUser in _context.User
-                        where getConnectionUser.Name == name
-                        select new
-                        {
-                            getPassword = getConnectionUser.Password,
-                            getId = getConnectionUser.Id
-                        };
-            foreach (var getConnectionUser in query)
-            {
+            User user = _context.User.FirstOrDefault(User => User.Mail == name);
+
                 // Check password Hash
-                if (BCrypt.CheckPassword(password, getConnectionUser.getPassword))
+                if (user != null && BCrypt.CheckPassword(password, user.Password))
                 {
-                    User? user = await _context.User.FindAsync(getConnectionUser.getId);
-                    if(user != null)
-                    {
+
                         string Token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
                         TokenWallet tw = new TokenWallet();
                         tw.Token = Token;
@@ -49,9 +41,8 @@ namespace Just_Binging.Controllers
                         _context.SaveChanges();
                         return await Task.FromResult(Ok(_context.TokenWallet.FirstOrDefault(T => T.TokenWalletId == tw.TokenWalletId)));
 
-                    }
                 }   
-            }
+
             return await Task.FromResult(Unauthorized());
         }
 
