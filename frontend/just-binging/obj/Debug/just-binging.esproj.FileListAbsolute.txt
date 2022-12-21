@@ -1,2 +1,4 @@
 C:\Users\lolhu\source\repos\projet-tei4-just-binging\frontend\just-binging\obj\Debug\just-binging.esproj.SuggestedBindingRedirects.cache
 C:\Users\lolhu\source\repos\projet-tei4-just-binging\frontend\just-binging\obj\Debug\just-binging.esproj.CoreCompileInputs.cache
+C:\Users\Coralie Fremal\Source\Repos\projet-tei4-just-binging\frontend\just-binging\obj\Debug\just-binging.esproj.SuggestedBindingRedirects.cache
+C:\Users\Coralie Fremal\Source\Repos\projet-tei4-just-binging\frontend\just-binging\obj\Debug\just-binging.esproj.CoreCompileInputs.cache
