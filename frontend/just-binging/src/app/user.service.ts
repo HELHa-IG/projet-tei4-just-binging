@@ -12,12 +12,14 @@ export class UserService {
   private walletSubject: BehaviorSubject<Wallet>;
   public wallet: Observable<Wallet>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.walletSubject = new BehaviorSubject<Wallet>(JSON.parse(localStorage.getItem('user')!));
+    this.wallet = this.walletSubject.asObservable();
+  }
 
-  login(username: string, password: string) {
-    return this.http.get<Wallet>(`/api/TokenWallets?name=` + username + "&password=" + password)
+  login(email: string, password: string) {
+    return this.http.get<Wallet>(`/api/TokenWallets?name=` + email + "&password=" + password)
       .pipe(map(wallet => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('user', JSON.stringify(wallet));
         this.walletSubject.next(wallet);
         return wallet;
