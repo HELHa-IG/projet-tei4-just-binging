@@ -11,6 +11,6 @@ namespace Just_Binging.Models
         public string Firstname { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
-        public ICollection<Show> Shows { get; set; }
+        public ICollection<Show>? Shows { get; set; }
     }
 }

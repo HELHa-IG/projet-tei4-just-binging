@@ -9,6 +9,6 @@ namespace Just_Binging.Models
         public int Number { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int ShowID { get; set; }
-        public Show Show { get; set; }
+        public Show? Show { get; set; }
     }
 }
