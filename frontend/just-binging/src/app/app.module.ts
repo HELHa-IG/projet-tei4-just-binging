@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
     HomeComponent
   ],
   imports: [
