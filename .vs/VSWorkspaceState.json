@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\frontend"
   ],
-  "SelectedNode": "\\Just_Binging.sln",
+  "SelectedNode": "\\backend\\Just_Binging.sln",
   "PreviewInSolutionExplorer": false
 }

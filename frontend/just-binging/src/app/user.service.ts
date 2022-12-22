@@ -4,13 +4,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Wallet } from './model/wallet';
+import { User } from './model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private walletSubject: BehaviorSubject<Wallet>;
-  public wallet: Observable<Wallet>;
+  public wallet: Observable<Wallet>; //modele wallet
+
+  //mettre un observable modele user ?
 
   constructor(private http: HttpClient) {
     this.walletSubject = new BehaviorSubject<Wallet>(JSON.parse(localStorage.getItem('user')!));
@@ -24,5 +27,16 @@ export class UserService {
         this.walletSubject.next(wallet);
         return wallet;
       }));
+  }
+
+  register(email: string, password: string, passwordConfirmation: string) {
+    return this.http.get<User>(`/api/Users?name=` + email + "&password="  )  //incomplet
+      /*
+      .pipe(map(wallet => {
+        localStorage.setItem('user', JSON.stringify(wallet));
+        this.walletSubject.next(wallet);
+        return wallet;
+      }));
+      */
   }
 }
