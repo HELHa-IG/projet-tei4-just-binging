@@ -10,13 +10,14 @@ import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthGuard } from './auth.guard';
 import { PanelShowComponent } from './panel-show/panel-show.component';
 import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({
