@@ -17,7 +17,9 @@ import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'panel-show', component: PanelShowComponent },
+  { path: 'panel-episode', component: PanelEpisodeComponent }
 ]
 
 @NgModule({
