@@ -29,6 +29,10 @@ export class UserService {
       }));
   }
 
+  public get walletValue(): Wallet {
+    return this.walletSubject.value;
+  }
+
   register(email: string, password: string, passwordConfirmation: string) {
     return this.http.get<User>(`/api/Users?name=` + email + "&password="  )  //incomplet
       /*
