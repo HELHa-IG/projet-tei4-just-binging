@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginInfo.email, this.loginInfo.password).pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/home');
         },
         error: error => {
 
