@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     PanelEpisodeComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes), FormsModule
+    BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }), FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

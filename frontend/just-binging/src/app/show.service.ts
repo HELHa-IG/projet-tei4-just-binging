@@ -13,4 +13,8 @@ export class ShowService {
   getAll() {
     return this.http.get<Show[]>("/api/shows");
   }
+
+  delete(id: string) {
+    return this.http.delete("/api/shows/" + id);
+  }
 }

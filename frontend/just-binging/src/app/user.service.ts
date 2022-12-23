@@ -34,13 +34,6 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.http.post('/api/Users', user )  //incomplet
-      /*
-      .pipe(map(wallet => {
-        localStorage.setItem('user', JSON.stringify(wallet));
-        this.walletSubject.next(wallet);
-        return wallet;
-      }));
-      */
+    return this.http.post('/api/Users', user )
   }
 }
