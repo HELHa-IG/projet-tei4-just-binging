@@ -33,8 +33,8 @@ export class UserService {
     return this.walletSubject.value;
   }
 
-  register(email: string, password: string, passwordConfirmation: string) {
-    return this.http.get<User>(`/api/Users?name=` + email + "&password="  )  //incomplet
+  register(user: User) {
+    return this.http.post('/api/Users', user )  //incomplet
       /*
       .pipe(map(wallet => {
         localStorage.setItem('user', JSON.stringify(wallet));

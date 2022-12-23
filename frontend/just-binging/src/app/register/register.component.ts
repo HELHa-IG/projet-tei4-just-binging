@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { UserService } from '../user.service';
+import { User } from '../model/user';
 
 @Component({
   //selector: 'app-register',
@@ -13,9 +14,12 @@ import { UserService } from '../user.service';
 export class RegisterComponent implements OnInit {
   registerInfo: {
     email: string;
+    type: number;
+    name: string;
+    firstname: string;
     password: string;
     passwordConfirmation: string;
-  } = { email: undefined!, password: undefined!, passwordConfirmation: undefined! }
+  } = { email: undefined!, type: 0, name: undefined!, firstname: undefined!, password: undefined!, passwordConfirmation: undefined! }
   
 
   constructor(private router: Router, private userService: UserService) { }
@@ -23,11 +27,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    if (this.registerInfo.email == undefined || this.registerInfo.password == undefined || this.registerInfo.passwordConfirmation == undefined) return;
-    this.userService.register(this.registerInfo.email, this.registerInfo.password, this.registerInfo.passwordConfirmation).pipe(first())
+    if (this.registerInfo.email == undefined || this.registerInfo.name == undefined || this.registerInfo.firstname == undefined || this.registerInfo.password == undefined || this.registerInfo.passwordConfirmation == undefined) return;
+    var user: User = new User();
+    user.firstname = this.registerInfo.firstname;
+    user.mail = this.registerInfo.email;
+    user.name = this.registerInfo.name;
+    user.password = this.registerInfo.password;
+    this.userService.register(user).pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/login');
         },
         error: error => {
 
