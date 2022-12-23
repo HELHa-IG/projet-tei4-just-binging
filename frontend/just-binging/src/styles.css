@@ -1,1 +1,196 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.index .full-screen {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .index .full-screen video {
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+.index .content a {
+  color: #fff;
+  background: #009790;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%), 0 5px 3px -2px rgb(0 0 0 / 20%), 0 1px 8px 0 rgb(0 0 0 / 12%);
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin: 4px 2px;
+  border-radius: 40px;
+  width: fit-content;
+  display: inline-block;
+}
+
+.login {
+  background: url(/assets/image/kiosk.jpg) no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .login .content a:hover {
+    background: #3F4A56;
+  }
+
+  .login .login-form {
+    width: calc(100% - 20px);
+    max-width: 500px;
+    background-color: #fff;
+    padding: 50px 40px;
+    border-radius: 30px;
+  }
+
+    .login .login-form h1 {
+      text-align: center;
+      margin: 48px 0;
+      font-size: 36px;
+      color: #111;
+      font-size: 36px;
+    }
+
+  .login .textb {
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+    .login .textb input {
+      width: 100%;
+      height: 70px;
+      border: none;
+      background-color: #ededed;
+      border-radius: 4px;
+      color: #333;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 60px 0 10px;
+    }
+
+  .login .placeholder {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    line-height: 70px;
+    top: 0;
+    left: 20px;
+    color: #9d9d9d;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .login .show-password {
+    position: absolute;
+    right: 20px;
+    line-height: 70px;
+    color: #9d9d9d;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .login .textb input:focus ~ .placeholder,
+  .login .textb input:valid ~ .placeholder {
+    left: 10px;
+    top: -16px;
+  }
+
+  .login .checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 20px 0;
+  }
+
+    .login .checkbox input {
+      width: 24px;
+      height: 24px;
+      -webkit-appearance: none;
+      background-color: #ededed;
+      border-radius: 4px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .login .checkbox .fa-check {
+      position: absolute;
+      color: #fff;
+      font-size: 14px;
+      width: 24px;
+      text-align: center;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .login .checkbox input:checked {
+      background-color: #009790;
+    }
+
+      .login .checkbox input:checked + .fa-check {
+        opacity: 1;
+      }
+
+  .login .btn {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 40px auto;
+    background-color: #009790;
+    color: #fff;
+    font-size: 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s linear;
+  }
+
+    .login .btn:hover {
+      opacity: .85;
+    }
+
+  .login .login-form a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+    transition: .2s linear;
+  }
+
+    .login .login-form a:hover {
+      color: #111;
+    }
+
+  .login .btn:disabled {
+    background-color: transparent;
+    color: #ddd;
+    border: 2px solid;
+  }
