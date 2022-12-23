@@ -13,8 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthGuard } from './auth.guard';
 import { PanelShowComponent } from './panel-show/panel-show.component';
 import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
+import { IndexComponent } from './index/index.component';
 
 const appRoutes: Routes = [
+  { path: '', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     HomeComponent,
     FooterComponent,
     PanelShowComponent,
-    PanelEpisodeComponent
+    PanelEpisodeComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }), FormsModule
