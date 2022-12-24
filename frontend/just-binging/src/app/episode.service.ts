@@ -19,4 +19,12 @@ export class EpisodeService {
   getAll() {
     return this.http.get<Episode[]>("/api/episodes", {headers: this.headers});
   }
+
+  add(episode: Episode) {
+    return this.http.post("/api/episodes", episode, { headers: this.headers });
+  }
+
+  delete(id: string) {
+    return this.http.delete("/api/episodes/" + id, { headers: this.headers });
+  }
 }
