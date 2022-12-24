@@ -15,7 +15,7 @@
               <tbody class="text-center">
                 <tr *ngFor="let show of shows">
                   <td>{{show.name}}</td>
-                  <td><i class="fas fa-eye"></i></td>
+                  <td id={{show.id}} (click)="delete(show.id)" data-bs-toggle="modal" href="#deleteModal" style="cursor: pointer;font-weight: bold;">Supprimé</td>
                 </tr>
               </tbody>
             </table>
@@ -25,3 +25,4 @@
     </div>
   </div>
 </section>
+
