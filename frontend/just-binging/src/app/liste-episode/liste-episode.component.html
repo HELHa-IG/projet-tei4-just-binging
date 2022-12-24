@@ -20,7 +20,7 @@
                 <tr *ngFor="let episode of episodes">
                   <td *ngIf="show.id == episode.showID">{{episode.number}}</td>
                   <td *ngIf="show.id == episode.showID">{{episode.releaseDate | date : 'dd/MM/YYYY'}}</td>
-                  <td id={{episode.id}} style="cursor: pointer;font-weight: bold;" *ngIf="show.id == episode.showID"><span>Supprimé</span></td>
+                  <td id={{episode.id}} style="cursor: pointer;font-weight: bold;" *ngIf="show.id == episode.showID"><span>Supprimer</span></td>
                 </tr>
               </tbody>
             </table>

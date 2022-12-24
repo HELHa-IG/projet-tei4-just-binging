@@ -15,6 +15,8 @@ import { PanelShowComponent } from './panel-show/panel-show.component';
 import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
 import { IndexComponent } from './index/index.component';
 import { ListeEpisodeComponent } from './liste-episode/liste-episode.component';
+import { FormShowComponent } from './form-show/form-show.component';
+import { FormEpisodeComponent } from './form-episode/form-episode.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'panel-show', component: PanelShowComponent, canActivate: [AuthGuard] },
+  { path: 'form-show', component: FormShowComponent, canActivate: [AuthGuard] },
   { path: 'panel-episode', component: PanelEpisodeComponent, canActivate: [AuthGuard] },
+  { path: 'form-episode', component: FormEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'liste/:id', component: ListeEpisodeComponent, canActivate: [AuthGuard] }
 ]
 
@@ -37,7 +41,9 @@ const appRoutes: Routes = [
     PanelShowComponent,
     PanelEpisodeComponent,
     IndexComponent,
-    ListeEpisodeComponent
+    ListeEpisodeComponent,
+    FormShowComponent,
+    FormEpisodeComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }), FormsModule
