@@ -14,14 +14,16 @@ import { AuthGuard } from './auth.guard';
 import { PanelShowComponent } from './panel-show/panel-show.component';
 import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
 import { IndexComponent } from './index/index.component';
+import { ListeEpisodeComponent } from './liste-episode/liste-episode.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'panel-show', component: PanelShowComponent },
-  { path: 'panel-episode', component: PanelEpisodeComponent }
+  { path: 'panel-show', component: PanelShowComponent, canActivate: [AuthGuard] },
+  { path: 'panel-episode', component: PanelEpisodeComponent, canActivate: [AuthGuard] },
+  { path: 'liste/:id', component: ListeEpisodeComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     FooterComponent,
     PanelShowComponent,
     PanelEpisodeComponent,
-    IndexComponent
+    IndexComponent,
+    ListeEpisodeComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }), FormsModule

@@ -1,6 +1,6 @@
 export class Episode {
   id: number;
-  numero: number;
+  number: number;
   releaseDate: Date;
-  showId: number;
+  showID: number;
 }

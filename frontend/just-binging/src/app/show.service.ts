@@ -14,6 +14,14 @@ export class ShowService {
     return this.http.get<Show[]>("/api/shows");
   }
 
+  getOne(id: string) {
+    return this.http.get<Show>("/api/shows/" + id);
+  }
+
+  add(show: Show) {
+    return this.http.post("/api/shows", show);
+  }
+
   delete(id: string) {
     return this.http.delete("/api/shows/" + id);
   }

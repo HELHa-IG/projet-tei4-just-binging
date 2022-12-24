@@ -8,14 +8,19 @@
             <table class="table table-striped table tablesorter" id="ipi-table">
               <thead class="thead-dark">
                 <tr>
-                  <th class="text-center">Titre du show</th>
+                  <th class="text-center" colspan="3">{{show.name}}</th>
+                </tr>
+                <tr>
+                  <th class="text-center">Numéro de l'épisode</th>
+                  <th class="text-center">date de diffusion</th>
                   <th class="text-center filter-false sorter-false">Action</th>
                 </tr>
               </thead>
               <tbody class="text-center">
-                <tr *ngFor="let show of shows">
-                  <td>{{show.name}}</td>
-                  <td id={{show.id}} style="cursor: pointer;font-weight: bold;"><span (click)="lister(show.id)">Lister épisodes </span><span (click)="delete(show.id)">Supprimé</span></td>
+                <tr *ngFor="let episode of episodes">
+                  <td *ngIf="show.id == episode.showID">{{episode.number}}</td>
+                  <td *ngIf="show.id == episode.showID">{{episode.releaseDate | date : 'dd/MM/YYYY'}}</td>
+                  <td id={{episode.id}} style="cursor: pointer;font-weight: bold;" *ngIf="show.id == episode.showID"><span>Supprimé</span></td>
                 </tr>
               </tbody>
             </table>
@@ -25,4 +30,3 @@
     </div>
   </div>
 </section>
-

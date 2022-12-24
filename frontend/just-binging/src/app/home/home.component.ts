@@ -33,4 +33,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  lister(id: string) {
+    this.router.navigateByUrl('/liste/' + id);
+  }
+
 }
