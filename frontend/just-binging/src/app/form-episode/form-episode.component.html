@@ -1,13 +1,14 @@
 <app-nav></app-nav>
 <section style="margin-top: 20px;margin-bottom: 20px;">
   <div class="container-fluid">
-    <form class="text-center">
+    <form class="text-center" (ngSubmit)="onSubmit()">
       <h1>Ajouter un episode</h1>
-      <div class="mb-3"><input class="form-control" type="text" name="title" placeholder="Titre episode"></div>
+      <div class="mb-3"><input class="form-control" type="number" name="title" placeholder="Numéro de l'episode" [(ngModel)]="newEpisode.numero"></div>
+      <div class="mb-3"><input class="form-control" type="date" name="date" placeholder="date de diffusion" [(ngModel)]="newEpisode.date"></div>
       <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Ajouter</button></div>
       <p class="text-muted">
       </p>
-      <a href="/panel-show" class="text-muted">Retour</a>
+      <a href="/home" class="text-muted">Retour</a>
     </form>
   </div>
 </section>

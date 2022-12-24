@@ -2,6 +2,7 @@
 <section style="margin-top: 20px;margin-bottom: 20px;">
   <div class="container-fluid">
     <h1>Accueil</h1>
+    <a href="/form-show" class="btn btn-primary" type="button" style="margin-bottom: 4px;">Ajouter Show</a>
     <div class="card" id="TableSorterCard">
       <div class="row">
         <div class="col-12">
@@ -16,7 +17,7 @@
               <tbody class="text-center">
                 <tr *ngFor="let show of shows">
                   <td>{{show.name}}</td>
-                  <td id={{show.id}} style="cursor: pointer;font-weight: bold;"><span (click)="lister(show.id)">Lister épisodes </span><span (click)="delete(show.id)">Supprimé</span></td>
+                  <td id={{show.id}} style="cursor: pointer;font-weight: bold;"><a href="/form-episode/{{show.id}}">Ajouter Episode</a> - <span (click)="lister(show.id)">Lister Episodes </span> - <span (click)="delete(show.id)">Supprimer Show</span></td>
                 </tr>
               </tbody>
             </table>

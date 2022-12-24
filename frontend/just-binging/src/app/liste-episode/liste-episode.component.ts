@@ -30,4 +30,18 @@ export class ListeEpisodeComponent implements OnInit {
     
   }
 
+  delete(id: number) {
+    if (confirm("Etes vous sûr de vouloir supprimer cet épisode?")) {
+      this.episodeService.delete(id).pipe(first())
+        .subscribe({
+          next: () => {
+            window.location.reload();
+          },
+          error: error => {
+
+          }
+        });
+    }
+  }
+
 }

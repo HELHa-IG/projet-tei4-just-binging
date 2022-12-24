@@ -24,7 +24,7 @@ export class EpisodeService {
     return this.http.post("/api/episodes", episode, { headers: this.headers });
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.http.delete("/api/episodes/" + id, { headers: this.headers });
   }
 }

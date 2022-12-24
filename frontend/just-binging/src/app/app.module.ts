@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'panel-show', component: PanelShowComponent, canActivate: [AuthGuard] },
   { path: 'form-show', component: FormShowComponent, canActivate: [AuthGuard] },
   { path: 'panel-episode', component: PanelEpisodeComponent, canActivate: [AuthGuard] },
-  { path: 'form-episode', component: FormEpisodeComponent, canActivate: [AuthGuard] },
+  { path: 'form-episode/:id', component: FormEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'liste/:id', component: ListeEpisodeComponent, canActivate: [AuthGuard] }
 ]
 
