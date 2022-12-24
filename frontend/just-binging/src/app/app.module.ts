@@ -11,8 +11,6 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthGuard } from './auth.guard';
-import { PanelShowComponent } from './panel-show/panel-show.component';
-import { PanelEpisodeComponent } from './panel-episode/panel-episode.component';
 import { IndexComponent } from './index/index.component';
 import { ListeEpisodeComponent } from './liste-episode/liste-episode.component';
 import { FormShowComponent } from './form-show/form-show.component';
@@ -23,9 +21,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'panel-show', component: PanelShowComponent, canActivate: [AuthGuard] },
   { path: 'form-show', component: FormShowComponent, canActivate: [AuthGuard] },
-  { path: 'panel-episode', component: PanelEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'form-episode/:id', component: FormEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'liste/:id', component: ListeEpisodeComponent, canActivate: [AuthGuard] }
 ]
@@ -38,8 +34,6 @@ const appRoutes: Routes = [
     NavComponent,
     HomeComponent,
     FooterComponent,
-    PanelShowComponent,
-    PanelEpisodeComponent,
     IndexComponent,
     ListeEpisodeComponent,
     FormShowComponent,
